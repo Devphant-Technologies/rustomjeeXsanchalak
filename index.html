@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sanchalak by Devphant – Rustomjee Quality Intelligence Platform</title>
+<title>Nirman by Devphant – Rustomjee Quality Intelligence Platform</title>
 <link rel="icon" type="image/x-icon" href="https://devphant.com/images/favicon.ico"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -303,6 +303,58 @@ footer strong{color:var(--white-60);}
   .feat-grid{grid-template-columns:1fr;}
   footer{padding:28px 16px;}
 }
+/* AI SECTION */
+.ai-hero-card{background:linear-gradient(135deg,rgba(74,158,231,.08) 0%,rgba(167,139,250,.08) 100%);border:1px solid rgba(167,139,250,.3);border-radius:20px;padding:36px 40px;margin-bottom:32px;position:relative;overflow:hidden;}
+.ai-hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(167,139,250,.15),transparent 70%);pointer-events:none;}
+.ai-hero-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(74,158,231,.1),transparent 70%);pointer-events:none;}
+.ai-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--purple);font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px;}
+.ai-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--purple);animation:pulse-ring 2s infinite;}
+.ai-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,3.5vw,30px);font-weight:700;color:var(--white);letter-spacing:-.5px;margin-bottom:10px;line-height:1.15;}
+.ai-desc{font-size:14px;color:var(--muted);line-height:1.75;max-width:580px;}
+.ai-cost-row{display:flex;align-items:center;gap:24px;margin-top:24px;flex-wrap:wrap;}
+.ai-cost-pill{background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);border-radius:12px;padding:12px 20px;display:flex;flex-direction:column;gap:3px;}
+.ai-cost-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--purple);}
+.ai-cost-val{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:-.5px;}
+.ai-cost-sub{font-size:11px;color:var(--muted);}
+.ai-chat-preview{background:var(--black-3);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.ai-chat-topbar{background:var(--black-4);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;}
+.ai-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.ai-chat-name{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--white);}
+.ai-chat-status{font-size:11px;color:var(--green);display:flex;align-items:center;gap:4px;}
+.ai-chat-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.ai-messages{padding:20px;display:flex;flex-direction:column;gap:14px;}
+.ai-msg{display:flex;gap:10px;align-items:flex-start;max-width:85%;}
+.ai-msg.user{align-self:flex-end;flex-direction:row-reverse;}
+.ai-msg-bubble{background:var(--black-4);border:1px solid var(--border);border-radius:12px 12px 12px 3px;padding:10px 14px;font-size:13px;color:var(--white);line-height:1.55;}
+.ai-msg.user .ai-msg-bubble{background:var(--blue-dim);border-color:var(--blue-border);border-radius:12px 12px 3px 12px;color:var(--white);}
+.ai-msg-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px;}
+.ai-msg-icon.bot{background:linear-gradient(135deg,var(--blue),var(--purple));}
+.ai-msg-icon.user{background:var(--black-4);border:1px solid var(--border);}
+.ai-highlight{color:var(--blue);font-weight:600;}
+.ai-highlight-g{color:var(--green);font-weight:600;}
+.ai-highlight-r{color:var(--red);font-weight:600;}
+.ai-chat-input{border-top:1px solid var(--border);padding:14px 20px;display:flex;gap:10px;align-items:center;background:var(--black-4);}
+.ai-input-field{flex:1;background:var(--black-3);border:1px solid var(--border);border-radius:8px;padding:9px 14px;font-size:13px;color:var(--muted);font-family:'Inter',sans-serif;}
+.ai-send-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;white-space:nowrap;transition:opacity .2s;}
+.ai-send-btn:hover{opacity:.85;}
+.ai-capabilities{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:24px;}
+.ai-cap{background:var(--black-3);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:border-color .2s,transform .2s;}
+.ai-cap:hover{border-color:rgba(167,139,250,.3);transform:translateY(-2px);}
+.ai-cap-icon{font-size:20px;margin-bottom:8px;}
+.ai-cap-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.ai-cap-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* APP STORE NOTE */
+.app-note{background:rgba(251,191,36,.05);border:1px solid rgba(251,191,36,.2);border-radius:14px;padding:22px 28px;display:flex;gap:18px;align-items:flex-start;margin-top:20px;}
+.app-note-icon{font-size:24px;flex-shrink:0;}
+.app-note-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.app-stores{display:flex;gap:16px;flex-wrap:wrap;margin-top:6px;}
+.store-pill{display:flex;align-items:center;gap:10px;background:var(--black-3);border:1px solid var(--border);border-radius:10px;padding:10px 16px;}
+.store-pill-icon{font-size:18px;}
+.store-pill-info{display:flex;flex-direction:column;gap:1px;}
+.store-pill-name{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--white);}
+.store-pill-cost{font-size:11px;color:var(--muted);}
+
 </style>
 </head>
 <body>
@@ -317,7 +369,7 @@ footer strong{color:var(--white-60);}
     <span style="display:none;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff;">Rustomjee</span>
   </div>
   <div class="topbar-right">
-    <strong>Sanchalak</strong> &nbsp;·&nbsp; Devphant × Rustomjee &nbsp;·&nbsp; June 2026
+    <strong>Nirman</strong> &nbsp;·&nbsp; Devphant × Rustomjee &nbsp;·&nbsp; June 2026
   </div>
 </div>
 
@@ -331,11 +383,11 @@ footer strong{color:var(--white-60);}
     <span class="rustomjee-name">Rustomjee Kapstone Construction Pvt. Ltd.</span>
   </div>
   <div class="hero-badge"><span class="badge-dot"></span>Product Proposal · 2026</div>
-  <h1>Sanchalak<br/><span class="accent">by Devphant</span></h1>
+  <h1>Nirman<br/><span class="accent">by Devphant</span></h1>
   <p class="hero-tagline">Replace your monthly Excel dashboard with a live, intelligent Quality Intelligence Platform — built specifically for Rustomjee's construction quality team.</p>
-  <p class="hero-meaning">सञ्चालक &nbsp;·&nbsp; <em>The Director. The One Who Drives.</em></p>
+  <p class="hero-meaning">निर्माण &nbsp;·&nbsp; <em>Construction. Quality. Perfection.</em></p>
   <div class="hero-stats">
-    <div class="stat-item"><div class="stat-value"><em>₹</em>1,50,000</div><div class="stat-label">Investment</div></div>
+    <div class="stat-item"><div class="stat-value"><em>₹</em>2,50,000</div><div class="stat-label">Investment</div></div>
     <div class="stat-item"><div class="stat-value">3 <em style="font-size:14px;font-weight:400;">wks</em></div><div class="stat-label">Delivery</div></div>
     <div class="stat-item"><div class="stat-value">100<em style="font-size:16px;font-weight:400;">%</em></div><div class="stat-label">Data Control</div></div>
     <div class="stat-item"><div class="stat-value"><em>∞</em></div><div class="stat-label">Real-time Data</div></div>
@@ -347,7 +399,7 @@ footer strong{color:var(--white-60);}
   <div class="container">
     <div class="eyebrow animate">The Problem We're Solving</div>
     <h2 class="section-title animate delay-1">Your Excel Sheet Is Holding You Back</h2>
-    <p class="section-desc animate delay-2">The current Quality Management Dashboard is a manual, fragmented, error-prone process. Sanchalak replaces it entirely — no more spreadsheets, no more chasing data, no more version confusion.</p>
+    <p class="section-desc animate delay-2">The current Quality Management Dashboard is a manual, fragmented, error-prone process. Nirman replaces it entirely — no more spreadsheets, no more chasing data, no more version confusion.</p>
 
     <div class="pvs-grid animate delay-3">
       <div class="pvs-card problem">
@@ -364,7 +416,7 @@ footer strong{color:var(--white-60);}
         </ul>
       </div>
       <div class="pvs-card solution">
-        <div class="pvs-title s">✅ With Sanchalak</div>
+        <div class="pvs-title s">✅ With Nirman</div>
         <ul class="pvs-list">
           <li><span>✓</span> Field engineers fill structured digital forms — data flows directly into the system</li>
           <li><span>✓</span> Live dashboard — every observation, checklist, and rating updated in real time</li>
@@ -380,12 +432,12 @@ footer strong{color:var(--white-60);}
   </div>
 </section>
 
-<!-- WHAT SANCHALAK DOES -->
+<!-- WHAT NIRMAN DOES -->
 <section>
   <div class="container">
     <div class="eyebrow animate">Platform Features</div>
-    <h2 class="section-title animate delay-1">What Sanchalak Does</h2>
-    <p class="section-desc animate delay-2">Every module in Sanchalak maps directly to a sheet or process in your current Excel dashboard — but smarter, faster, and always live.</p>
+    <h2 class="section-title animate delay-1">What Nirman Does</h2>
+    <p class="section-desc animate delay-2">Every module in Nirman maps directly to a sheet or process in your current Excel dashboard — but smarter, faster, and always live.</p>
 
     <div class="feat-grid">
       <div class="feat animate delay-1">
@@ -450,14 +502,14 @@ footer strong{color:var(--white-60);}
 <section>
   <div class="container">
     <div class="eyebrow animate">Platform Preview</div>
-    <h2 class="section-title animate delay-1">Sanchalak in Action</h2>
+    <h2 class="section-title animate delay-1">Nirman in Action</h2>
     <p class="section-desc animate delay-2">Four live views — the same data your team works with today, but in real time, with no manual updates required.</p>
 
     <div class="db-wrap animate delay-3">
       <div class="db-topbar">
         <div class="db-title-row">
           <span class="db-dot"></span>
-          <span class="db-title">Sanchalak — Quality Intelligence Platform</span>
+          <span class="db-title">Nirman — Quality Intelligence Platform</span>
           <span class="db-live">Live</span>
         </div>
         <span class="db-date">Rustomjee Kapstone &nbsp;·&nbsp; March 2026</span>
@@ -697,7 +749,7 @@ footer strong{color:var(--white-60);}
   <div class="container">
     <div class="eyebrow animate">Scope of Work</div>
     <h2 class="section-title animate delay-1">What We're Building</h2>
-    <p class="section-desc animate delay-2">Sanchalak is built and delivered in 2 weeks, followed by a dedicated UAT & Training week before go-live.</p>
+    <p class="section-desc animate delay-2">Nirman is built and delivered in 2 weeks, followed by a dedicated UAT & Training week before go-live.</p>
 
     <div class="phase-hdr p1 animate delay-3">
       <div><div class="ph-label p1c">Phase 1</div><div class="ph-name">Core Platform & Data Migration</div></div>
@@ -706,11 +758,11 @@ footer strong{color:var(--white-60);}
       <table class="scope-table">
         <thead><tr><th style="width:36px;">#</th><th>Deliverable</th><th style="width:80px;">Timeline</th></tr></thead>
         <tbody>
-          <tr><td class="td-num">01</td><td><div class="td-title">📐 Discovery & System Architecture</div><div class="td-desc">Map every sheet, formula, and data flow from the current Excel dashboard to Sanchalak's database schema. Define roles (field engineer, site incharge, quality manager, management). Plan all forms and views.</div></td><td class="td-week">Week 1</td></tr>
+          <tr><td class="td-num">01</td><td><div class="td-title">📐 Discovery & System Architecture</div><div class="td-desc">Map every sheet, formula, and data flow from the current Excel dashboard to Nirman's database schema. Define roles (field engineer, site incharge, quality manager, management). Plan all forms and views.</div></td><td class="td-week">Week 1</td></tr>
           <tr><td class="td-num">02</td><td><div class="td-title">🎨 UI/UX Design</div><div class="td-desc">Design all screens in Figma — dashboard, observation form, checklist tracker, MIR, project cards, and admin panel. Mobile-first for field engineers. Shared for approval before development.</div></td><td class="td-week">Wk 1–2</td></tr>
           <tr><td class="td-num">03</td><td><div class="td-title">📋 Digital Observation Forms</div><div class="td-desc">Build the primary data entry form — project, wing, incharge, activity, stage, contractor, observation, severity, target date, and photo upload. Accessible on mobile from any site.</div></td><td class="td-week">Wk 2–3</td></tr>
           <tr><td class="td-num">04</td><td><div class="td-title">📊 Core Dashboard & Quality Ratings</div><div class="td-desc">Live dashboard showing project-wise quality scores, open vs closed observations, ageing analysis, severity breakdown, and closure rate — all calculated automatically from submitted data.</div></td><td class="td-week">Wk 2–4</td></tr>
-          <tr><td class="td-num">05</td><td><div class="td-title">🗂️ Historical Data Migration</div><div class="td-desc">Migrate all 46,000+ historical observations from the Excel sheet into Sanchalak's database. All historical ratings, checklists, and MIR data preserved and searchable from day one.</div></td><td class="td-week">Wk 3–4</td></tr>
+          <tr><td class="td-num">05</td><td><div class="td-title">🗂️ Historical Data Migration</div><div class="td-desc">Migrate all 46,000+ historical observations from the Excel sheet into Nirman's database. All historical ratings, checklists, and MIR data preserved and searchable from day one.</div></td><td class="td-week">Wk 3–4</td></tr>
           <tr><td class="td-num">06</td><td><div class="td-title">👥 Role-Based Access Control</div><div class="td-desc">Field Engineer, Site Incharge, Quality Manager, and Management roles with separate login and views. Admin can add/remove users and assign them to projects.</div></td><td class="td-week">Wk 3–5</td></tr>
           <tr><td class="td-num">07</td><td><div class="td-title">✅ BIM 360 Checklist & MIR Module</div><div class="td-desc">Digital checklist tracker (IP, R1, R2, Closed) and Material Inspection Report module — replace the corresponding sheets with live, collaborative forms.</div></td><td class="td-week">Wk 4–5</td></tr>
           <tr><td class="td-num">08</td><td><div class="td-title">🚀 QA, Testing & Deployment</div><div class="td-desc">Cross-device QA, performance testing, data integrity verification, SSL setup, and go-live. 7-day post-launch bug support included.</div></td><td class="td-week">Week 6</td></tr>
@@ -734,11 +786,46 @@ footer strong{color:var(--white-60);}
     </div>
 
     <div class="totals-box animate delay-2">
-      <div class="total-row"><span class="total-label">Development (Week 1–2)</span><span class="total-val tv-blue">₹1,50,000</span></div>
-      <div class="total-row"><span class="total-label">Go-Live, UAT & Training (Week 3)</span><span class="total-val tv-purple">Included</span></div>
-      <div class="total-row total-grand">
-        <div><span class="total-label">Total Project Cost</span><span class="no-gst">No GST applicable · Fixed cost, no surprises</span></div>
-        <div style="text-align:right;"><span class="total-val"><em>₹</em>1,50,000</span></div>
+      <div class="total-row total-grand" style="background:var(--black-3);">
+        <div><span class="total-label" style="font-size:16px;">Total Project Investment</span><span class="no-gst">No GST applicable · Fixed cost, no surprises</span></div>
+        <div style="text-align:right;"><span class="total-val" style="font-size:28px;"><em>₹</em>2,50,000</span></div>
+      </div>
+      <div style="padding:6px 24px 10px;background:var(--black-4);border-bottom:1px solid var(--border);">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px;">Bifurcation</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;">
+              <span style="font-size:14px;">⚙️</span>
+              <div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--white);">Core Platform Build</div>
+                <div style="font-size:11.5px;color:var(--muted);">Dashboard · Forms · Data Migration · Roles · Checklists · MIR · Reports</div>
+              </div>
+            </div>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--blue);white-space:nowrap;">₹1,50,000</span>
+          </div>
+          <div style="height:1px;background:var(--border);margin:2px 0;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;">
+              <span style="font-size:14px;">🤖</span>
+              <div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--white);">Nirman AI — Chat with Your Data</div>
+                <div style="font-size:11.5px;color:var(--muted);">Natural language queries · Contractor intelligence · Live AI answers</div>
+              </div>
+            </div>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--purple);white-space:nowrap;">₹1,00,000</span>
+          </div>
+          <div style="height:1px;background:var(--border);margin:2px 0;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;">
+              <span style="font-size:14px;">🚀</span>
+              <div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--white);">UAT, Training & Go-Live</div>
+                <div style="font-size:11.5px;color:var(--muted);">Week 3 — User acceptance testing · Team training · Deployment</div>
+              </div>
+            </div>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--green);white-space:nowrap;">Included</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -773,7 +860,7 @@ footer strong{color:var(--white-60);}
   <div class="container">
     <div class="eyebrow animate">Post-Launch</div>
     <h2 class="section-title animate delay-1">Annual Maintenance Contract</h2>
-    <p class="section-desc animate delay-2">After the 7-day free support window, keep Sanchalak running with Devphant's Annual Maintenance Contract — billed once a year, covering everything below. Separate from and above the ₹1,50,000 project cost.</p>
+    <p class="section-desc animate delay-2">After the 7-day free support window, keep Nirman running with Devphant's Annual Maintenance Contract — billed once a year, covering everything below. Separate from and above the ₹2,50,000 project cost.</p>
 
     <div class="amc-card animate delay-3">
       <div class="amc-header">
@@ -831,16 +918,159 @@ footer strong{color:var(--white-60);}
   </div>
 </section>
 
+<!-- AI INTELLIGENCE SECTION -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">🤖 Add-On Feature</div>
+    <h2 class="section-title animate delay-1">Nirman AI — Ask Your Data Anything</h2>
+    <p class="section-desc animate delay-2">An optional but powerful add-on. Instead of building reports or filtering dashboards, your quality team simply <em style="color:var(--white);font-style:normal;">asks a question</em> — and the AI digs into 46,000+ observations to give a real, instant, data-backed answer.</p>
+
+    <!-- Hero card -->
+    <div class="ai-hero-card animate delay-3">
+      <div class="ai-badge"><span class="ai-badge-dot"></span>Optional Add-On · AI Powered</div>
+      <div class="ai-title">Natural Language Intelligence<br/>for Your Quality Data</div>
+      <p class="ai-desc">No filters. No pivot tables. No manually scanning sheets. A quality manager types a question in plain English (or Hindi), and Nirman AI responds with precise, data-backed answers — pulling from live observations, checklists, MIR records, and contractor history in real time.</p>
+      <div class="ai-cost-row">
+        <div class="ai-cost-pill">
+          <span class="ai-cost-label">Additional Cost</span>
+          <span class="ai-cost-val">₹1,00,000</span>
+          <span class="ai-cost-sub">One-time · No GST</span>
+        </div>
+        <div class="ai-cost-pill">
+          <span class="ai-cost-label">Extra Dev Time</span>
+          <span class="ai-cost-val">+1 Week</span>
+          <span class="ai-cost-sub">Total: 4-week delivery</span>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.65;max-width:280px;">Already included in the total project cost of <strong style="color:var(--white);">₹2,50,000</strong>. Delivered in Week 4.</div>
+      </div>
+    </div>
+
+    <!-- Chat preview -->
+    <div class="ai-chat-preview animate delay-4">
+      <div class="ai-chat-topbar">
+        <div class="ai-avatar">🧠</div>
+        <div>
+          <div class="ai-chat-name">Nirman AI</div>
+          <div class="ai-chat-status">Online — ready to answer</div>
+        </div>
+      </div>
+      <div class="ai-messages">
+
+        <div class="ai-msg user">
+          <div class="ai-msg-icon user">👤</div>
+          <div class="ai-msg-bubble">Which contractor has the most open observations across all projects this month?</div>
+        </div>
+
+        <div class="ai-msg">
+          <div class="ai-msg-icon bot">🧠</div>
+          <div class="ai-msg-bubble"><span class="ai-highlight-r">Simplex Infra</span> has the highest open observations this month with <span class="ai-highlight-r">147 open</span> across La Familia NTA and Verdant Vistas — 38 of which are classified <span class="ai-highlight-r">High or Very High severity</span>. Their average closure time is 18 days vs the site average of 11 days.</div>
+        </div>
+
+        <div class="ai-msg user">
+          <div class="ai-msg-icon user">👤</div>
+          <div class="ai-msg-bubble">What are the top 3 repetitive observations in La Familia A Wing in the last 60 days?</div>
+        </div>
+
+        <div class="ai-msg">
+          <div class="ai-msg-icon bot">🧠</div>
+          <div class="ai-msg-bubble">In the last 60 days, La Familia A Wing shows these recurring issues:<br/><br/>
+            1. <span class="ai-highlight">Curing not done on plastered surface</span> — flagged 14 times<br/>
+            2. <span class="ai-highlight">External painting incomplete</span> — flagged 11 times<br/>
+            3. <span class="ai-highlight">Shear key not provided at concrete stage</span> — flagged 8 times, 3 marked Very High severity<br/><br/>
+            All three involve the same contractor. Want me to generate a contractor performance report?
+          </div>
+        </div>
+
+        <div class="ai-msg user">
+          <div class="ai-msg-icon user">👤</div>
+          <div class="ai-msg-bubble">How many observations are overdue by more than 30 days and which project has the most?</div>
+        </div>
+
+        <div class="ai-msg">
+          <div class="ai-msg-icon bot">🧠</div>
+          <div class="ai-msg-bubble"><span class="ai-highlight-r">89 observations</span> are overdue by more than 30 days. <span class="ai-highlight-r">La Familia A Wing</span> has the most with 45 overdue observations — primarily in External Painting and Carpentry categories. I'd recommend escalating these to the site incharge immediately.</div>
+        </div>
+
+      </div>
+      <div class="ai-chat-input">
+        <div class="ai-input-field">Ask anything about your quality data...</div>
+        <button class="ai-send-btn">Ask Nirman AI ↑</button>
+      </div>
+    </div>
+
+    <!-- Capabilities -->
+    <div class="ai-capabilities animate">
+      <div class="ai-cap">
+        <div class="ai-cap-icon">🔍</div>
+        <div class="ai-cap-title">Natural Language Queries</div>
+        <div class="ai-cap-desc">Ask questions in plain English — no filters, no pivot tables. The AI understands context and intent.</div>
+      </div>
+      <div class="ai-cap">
+        <div class="ai-cap-icon">📊</div>
+        <div class="ai-cap-title">Live Data Answers</div>
+        <div class="ai-cap-desc">Every answer is pulled from live Nirman data — not a static report. Ask the same question tomorrow and get today's numbers.</div>
+      </div>
+      <div class="ai-cap">
+        <div class="ai-cap-icon">🏗️</div>
+        <div class="ai-cap-title">Contractor Intelligence</div>
+        <div class="ai-cap-desc">Compare contractor performance, identify repeat offenders, and get closure rate rankings — instantly.</div>
+      </div>
+      <div class="ai-cap">
+        <div class="ai-cap-icon">⚠️</div>
+        <div class="ai-cap-title">Proactive Risk Flags</div>
+        <div class="ai-cap-desc">Ask "what should I be worried about this week?" and the AI surfaces high-risk observations before they escalate.</div>
+      </div>
+      <div class="ai-cap">
+        <div class="ai-cap-icon">📈</div>
+        <div class="ai-cap-title">Trend Analysis</div>
+        <div class="ai-cap-desc">Spot patterns across months, projects, and activities — the AI connects the dots your team doesn't have time to.</div>
+      </div>
+      <div class="ai-cap">
+        <div class="ai-cap-icon">📝</div>
+        <div class="ai-cap-title">Auto-Summary Reports</div>
+        <div class="ai-cap-desc">"Summarise this month's quality performance for La Familia" — and get a ready-to-share paragraph in seconds.</div>
+      </div>
+    </div>
+
+    <!-- App store note -->
+    <div class="app-note animate">
+      <div class="app-note-icon">📱</div>
+      <div>
+        <div class="app-note-title">If a Mobile App is Required — App Store Fees</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;">Nirman is fully mobile-responsive and works on any smartphone browser. However, if a native iOS or Android app is needed, the following one-time or annual store fees apply — charged separately by Apple and Google directly to Rustomjee.</p>
+        <div class="app-stores">
+          <div class="store-pill">
+            <div class="store-pill-icon">🤖</div>
+            <div class="store-pill-info">
+              <span class="store-pill-name">Google Play Store</span>
+              <span class="store-pill-cost"><strong style="color:var(--amber);">$25</strong> — one-time lifetime fee</span>
+            </div>
+          </div>
+          <div class="store-pill">
+            <div class="store-pill-icon">🍎</div>
+            <div class="store-pill-info">
+              <span class="store-pill-name">Apple App Store</span>
+              <span class="store-pill-cost"><strong style="color:var(--amber);">$99</strong> — annual fee (paid every year)</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;">These fees are paid directly by Rustomjee to Google and Apple respectively. App development cost (if required) will be scoped and quoted separately by Devphant.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CTA -->
 <div class="cta-section">
   <div class="cta-glow"></div>
-  <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;position:relative;">Let's Build Sanchalak</div>
+  <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;position:relative;">Let's Build Nirman</div>
   <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--white);letter-spacing:-1px;line-height:1.1;margin-bottom:12px;position:relative;">Ready to move beyond<br/><span style="color:var(--blue);">Excel?</span></h2>
-  <p style="font-size:15px;color:var(--muted);max-width:440px;margin:0 auto 40px;line-height:1.7;position:relative;">Let's start with a 1-hour discovery session with your quality team — and finalise Sanchalak's scope and cost together.</p>
+  <p style="font-size:15px;color:var(--muted);max-width:440px;margin:0 auto 40px;line-height:1.7;position:relative;">Let's start with a 1-hour discovery session with your quality team — and finalise Nirman's scope and cost together.</p>
 
   <button id="launch-btn" onclick="launchConfetti()" style="display:inline-flex;align-items:center;gap:14px;background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;padding:18px 40px;border-radius:100px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;animation:pulse-ring 2.5s infinite;position:relative;z-index:2;" onmouseover="this.style.transform='scale(1.06)';this.style.boxShadow='0 8px 32px rgba(74,158,231,.5)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
     <span style="width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">▶</span>
-    Yes, Let's Build Sanchalak
+    Yes, Let's Build Nirman
   </button>
 
   <div id="cta-after" style="display:none;margin-top:40px;animation:fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both;">
