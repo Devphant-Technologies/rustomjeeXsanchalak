@@ -1,1 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sanchalak by Devphant – Rustomjee Quality Intelligence Platform</title>
+<link rel="icon" type="image/x-icon" href="https://devphant.com/images/favicon.ico"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#0A0A0A;--black-2:#111111;--black-3:#1A1A1A;--black-4:#222222;
+  --blue:#4A9EE7;--blue-dim:rgba(74,158,231,0.12);--blue-border:rgba(74,158,231,0.25);
+  --white:#FFFFFF;--white-60:rgba(255,255,255,0.6);--white-10:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.08);--muted:rgba(255,255,255,0.5);
+  --green:#34D399;--red:#F87171;--purple:#A78BFA;--amber:#FBBF24;--orange:#FB923C;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes glow-pulse{0%,100%{opacity:.15;}50%{opacity:.3;}}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(74,158,231,.4);}70%{box-shadow:0 0 0 10px rgba(74,158,231,0);}100%{box-shadow:0 0 0 0 rgba(74,158,231,0);}}
+@keyframes barGrow{from{width:0;}}
+@keyframes lineGrow{from{stroke-dashoffset:500;}to{stroke-dashoffset:0;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes confettiFall{0%{opacity:1;transform:translateY(-20px) rotate(0deg);}100%{opacity:0;transform:translateY(100vh) rotate(720deg);}}
+
+.animate{opacity:0;}
+.animate.visible{animation:fadeUp .55s cubic-bezier(.22,1,.36,1) forwards;}
+.animate.delay-1{animation-delay:.08s;}.animate.delay-2{animation-delay:.16s;}
+.animate.delay-3{animation-delay:.24s;}.animate.delay-4{animation-delay:.32s;}
+
+/* TOPBAR */
+.topbar{background:var(--black-2);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.topbar-logos{display:flex;align-items:center;gap:16px;}
+.topbar-logos img{height:28px;display:block;}
+.logo-sep{width:1px;height:22px;background:rgba(255,255,255,0.15);}
+.topbar-right{font-size:12px;color:var(--muted);}
+.topbar-right strong{color:var(--white-60);}
+
+/* HERO */
+.hero{background:var(--black-2);border-bottom:1px solid var(--border);padding:80px 40px 64px;text-align:center;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:320px;background:radial-gradient(ellipse,rgba(74,158,231,.18) 0%,transparent 70%);pointer-events:none;animation:glow-pulse 4s ease-in-out infinite;}
+.hero-glow-2{position:absolute;bottom:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(ellipse,rgba(251,191,36,.08) 0%,transparent 70%);pointer-events:none;}
+.for-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:32px;animation:fadeIn .6s ease both;}
+.for-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-family:'Space Grotesk',sans-serif;}
+.for-sep{width:24px;height:1px;background:var(--border);}
+.rustomjee-name{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:.5px;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:28px;animation:fadeIn .6s .1s ease both;}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse-ring 2s infinite;}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,7vw,70px);font-weight:700;line-height:1.0;letter-spacing:-2px;animation:fadeUp .7s .15s cubic-bezier(.22,1,.36,1) both;margin-bottom:10px;}
+.hero h1 .accent{color:var(--blue);}
+.hero-tagline{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--muted);margin:12px auto 8px;max-width:560px;animation:fadeUp .7s .2s cubic-bezier(.22,1,.36,1) both;line-height:1.65;}
+.hero-meaning{font-family:'Space Grotesk',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1px;margin-bottom:40px;animation:fadeUp .7s .25s cubic-bezier(.22,1,.36,1) both;}
+.hero-meaning em{color:var(--amber);font-style:normal;}
+.hero-stats{display:inline-flex;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--black-3);animation:fadeUp .7s .3s cubic-bezier(.22,1,.36,1) both;}
+.stat-item{padding:20px 32px;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-value{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;}
+.stat-value em{color:var(--blue);font-style:normal;}
+.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-family:'Space Grotesk',sans-serif;}
+
+/* LAYOUT */
+.container{max-width:900px;margin:0 auto;padding:0 24px;}
+section{padding:60px 0;border-bottom:1px solid var(--border);}
+.eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,4vw,34px);font-weight:700;color:var(--white);letter-spacing:-.5px;margin-bottom:10px;line-height:1.15;}
+.section-desc{font-size:14px;color:var(--muted);max-width:620px;margin-bottom:36px;line-height:1.75;}
+
+/* PROBLEM VS SOLUTION */
+.pvs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px;}
+.pvs-card{border-radius:14px;padding:26px 24px;}
+.pvs-card.problem{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);}
+.pvs-card.solution{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);}
+.pvs-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;}
+.pvs-title.p{color:var(--red);}.pvs-title.s{color:var(--green);}
+.pvs-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.pvs-list li{font-size:13.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start;line-height:1.55;}
+.pvs-list li span{flex-shrink:0;margin-top:1px;}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:16px;}
+.feat{background:var(--black-3);border:1px solid var(--border);border-radius:14px;padding:24px 22px;transition:border-color .2s,transform .2s;}
+.feat:hover{border-color:var(--blue-border);transform:translateY(-3px);}
+.feat-icon{font-size:28px;margin-bottom:12px;display:block;}
+.feat h3{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.feat p{font-size:13px;color:var(--muted);line-height:1.65;}
+.feat-tag{display:inline-block;margin-top:12px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:10.5px;font-weight:600;font-family:'Space Grotesk',sans-serif;padding:3px 10px;border-radius:100px;}
+
+/* DASHBOARD */
+.db-wrap{background:var(--black-3);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.db-topbar{background:var(--black-2);border-bottom:1px solid var(--border);padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.db-title-row{display:flex;align-items:center;gap:10px;}
+.db-dot{width:9px;height:9px;border-radius:50%;background:var(--blue);animation:pulse-ring 2s infinite;}
+.db-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--white);}
+.db-live{background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:2px 10px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;}
+.db-date{font-size:11px;color:var(--muted);font-family:'Space Grotesk',sans-serif;}
+.db-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--black-4);overflow-x:auto;}
+.db-tab{padding:11px 18px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;user-select:none;}
+.db-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.db-tab:hover:not(.active){color:var(--white-60);}
+.db-panel{display:none;}.db-panel.active{display:block;}
+
+/* KPIs */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);}
+.kpi{padding:18px 20px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.kpi:nth-child(4){border-right:none;}
+.kpi-icon{font-size:18px;margin-bottom:6px;}
+.kpi-label{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;}
+.kpi-value{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--white);line-height:1;margin-bottom:5px;}
+.kpi-delta{font-size:11.5px;font-family:'Space Grotesk',sans-serif;font-weight:600;display:flex;align-items:center;gap:4px;}
+.kpi-delta.up{color:var(--green);}.kpi-delta.down{color:var(--red);}.kpi-delta.warn{color:var(--amber);}
+
+/* body grid */
+.db-body{display:grid;grid-template-columns:1fr 260px;}
+.db-chart-area{padding:20px;border-right:1px solid var(--border);}
+.chart-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.chart-sub{font-size:11px;color:var(--muted);margin-bottom:16px;}
+.chart-svg-wrap svg{width:100%;overflow:visible;}
+.chart-line{fill:none;stroke:var(--blue);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:500;animation:lineGrow 2s ease forwards;}
+.chart-area-fill{fill:url(#blueGrad2);}
+.chart-target{fill:none;stroke:var(--amber);stroke-width:1.5;stroke-dasharray:6 4;}
+.chart-x{display:flex;justify-content:space-between;margin-top:8px;}
+.chart-x span{font-size:10px;color:var(--muted);font-family:'Space Grotesk',sans-serif;}
+.db-sidebar{padding:20px;}
+.sidebar-title{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--white);margin-bottom:14px;}
+.proj-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px;}
+.proj-name{font-size:12px;color:var(--muted);font-family:'Space Grotesk',sans-serif;flex:1;}
+.proj-score{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;}
+.score-good{color:var(--green);}.score-avg{color:var(--amber);}.score-low{color:var(--red);}
+.proj-bar-track{width:60px;height:5px;background:var(--white-10);border-radius:100px;overflow:hidden;}
+.proj-bar-fill{height:100%;border-radius:100px;animation:barGrow 1.2s cubic-bezier(.22,1,.36,1) both;}
+
+/* obs panel */
+.obs-table{width:100%;border-collapse:collapse;}
+.obs-table thead tr{background:var(--black-4);border-bottom:1px solid var(--border);}
+.obs-table thead th{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:11px 16px;text-align:left;}
+.obs-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s;cursor:default;}
+.obs-table tbody tr:last-child{border-bottom:none;}
+.obs-table tbody tr:hover{background:var(--white-10);}
+.obs-table tbody td{padding:13px 16px;font-size:12.5px;color:var(--muted);}
+.obs-table tbody td:first-child{color:var(--white);font-weight:500;}
+.sev-badge{font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:2px 10px;border-radius:100px;white-space:nowrap;}
+.sev-high{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.25);}
+.sev-med{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.25);}
+.sev-low{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25);}
+.sev-vh{background:rgba(251,113,36,.12);color:var(--orange);border:1px solid rgba(251,113,36,.25);}
+.status-open{color:var(--red);font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:11px;}
+.status-closed{color:var(--green);font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:11px;}
+.status-prog{color:var(--amber);font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:11px;}
+
+/* form panel */
+.form-preview{padding:20px 24px;}
+.form-group{margin-bottom:16px;}
+.form-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;display:block;}
+.form-input{width:100%;background:var(--black-4);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--white);font-family:'Inter',sans-serif;transition:border-color .2s,box-shadow .2s;outline:none;}
+.form-input:focus{border-color:var(--blue-border);box-shadow:0 0 0 3px rgba(74,158,231,.1);}
+.form-input::placeholder{color:rgba(255,255,255,.25);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-select{width:100%;background:var(--black-4);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--white);font-family:'Inter',sans-serif;appearance:none;transition:border-color .2s;outline:none;}
+.form-select:focus{border-color:var(--blue-border);}
+.severity-row{display:flex;gap:8px;flex-wrap:wrap;}
+.sev-btn{padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;cursor:pointer;border:1px solid var(--border);background:var(--black-4);color:var(--muted);transition:all .2s;}
+.sev-btn.active-vh{background:rgba(251,113,36,.15);border-color:rgba(251,113,36,.4);color:var(--orange);}
+.sev-btn.active-h{background:rgba(248,113,113,.15);border-color:rgba(248,113,113,.4);color:var(--red);}
+.sev-btn.active-m{background:rgba(251,191,36,.15);border-color:rgba(251,191,36,.4);color:var(--amber);}
+.sev-btn.active-l{background:rgba(52,211,153,.15);border-color:rgba(52,211,153,.4);color:var(--green);}
+.form-submit{background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;padding:11px 24px;border-radius:8px;border:none;cursor:pointer;width:100%;margin-top:4px;transition:opacity .2s;}
+.form-submit:hover{opacity:.85;}
+.db-bottom{border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.db-bottom-col{padding:18px 20px;border-right:1px solid var(--border);}
+.db-bottom-col:last-child{border-right:none;}
+.mini-title{font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;color:var(--white);margin-bottom:12px;}
+.bar-row{display:flex;flex-direction:column;gap:8px;}
+.bar-item{display:flex;flex-direction:column;gap:3px;}
+.bar-top{display:flex;justify-content:space-between;}
+.bar-label{font-size:11px;color:var(--muted);font-family:'Space Grotesk',sans-serif;}
+.bar-val{font-size:11px;font-weight:700;color:var(--white);font-family:'Space Grotesk',sans-serif;}
+.bar-track{height:5px;background:var(--white-10);border-radius:100px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:100px;animation:barGrow 1.2s cubic-bezier(.22,1,.36,1) both;}
+.bf-blue{background:var(--blue);}.bf-green{background:var(--green);}
+.bf-amber{background:var(--amber);}.bf-red{background:var(--red);}
+.bf-purple{background:var(--purple);}
+
+/* SCOPE TABLE */
+.phase-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-radius:12px 12px 0 0;}
+.phase-hdr.p1{background:rgba(74,158,231,.07);border:1px solid var(--blue-border);border-bottom:none;}
+.phase-hdr.p2{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-bottom:none;margin-top:24px;}
+.phase-hdr .ph-name{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--white);}
+.phase-hdr .ph-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.ph-label.p1c{color:var(--blue);}.ph-label.p2c{color:var(--purple);}
+.scope-wrap{background:var(--black-3);border:1px solid var(--border);border-radius:0 0 14px 14px;overflow:hidden;margin-bottom:8px;}
+.scope-table{width:100%;border-collapse:collapse;}
+.scope-table thead tr{background:var(--black-4);border-bottom:1px solid var(--border);}
+.scope-table thead th{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:11px 16px;text-align:left;}
+.scope-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s;}
+.scope-table tbody tr:last-child{border-bottom:none;}
+.scope-table tbody tr:hover{background:rgba(74,158,231,.04);}
+.scope-table td{padding:16px 16px;vertical-align:top;}
+.td-num{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--blue);width:36px;padding-top:18px;}
+.td-num.p2c{color:var(--purple);}
+.td-title{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:5px;}
+.td-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+.td-week{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;width:80px;}
+
+/* TOTALS */
+.totals-box{background:var(--black-3);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:20px;}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:15px 24px;border-bottom:1px solid var(--border);}
+.total-row:last-child{border-bottom:none;}
+.total-label{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--muted);}
+.total-val{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;}
+.tv-blue{color:var(--blue);}.tv-purple{color:var(--purple);}
+.total-grand{background:var(--black-4);}
+.total-grand .total-label{font-size:14px;font-weight:700;color:var(--white);}
+.total-grand .total-val{font-size:22px;color:var(--white);}
+.no-gst{font-size:11px;color:var(--green);font-weight:600;display:block;margin-top:3px;}
+
+/* PAYMENT */
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.pay-card{background:var(--black-3);border:1px solid var(--border);border-radius:14px;padding:24px 22px;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.pay-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,158,231,.06),transparent 60%);opacity:0;transition:opacity .2s;}
+.pay-card:hover{border-color:var(--blue-border);transform:translateY(-3px);box-shadow:0 12px 32px rgba(74,158,231,.1);}
+.pay-card:hover::before{opacity:1;}
+.pay-stage{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.pay-pct{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--white);letter-spacing:-1px;line-height:1;margin-bottom:4px;}
+.pay-amount{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--blue);margin-bottom:10px;}
+.pay-when{font-size:13px;color:var(--muted);line-height:1.5;}
+.pay-badge{display:inline-block;margin-top:12px;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:3px 10px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;}
+
+/* INCLUDED TABLE */
+.inc-wrap{background:var(--black-3);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.inc-col-hdr{padding:12px 22px;display:flex;align-items:center;gap:8px;}
+.inc-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border);}
+.inc-row:last-child{border-bottom:none;}
+.inc-cell{padding:14px 22px;display:flex;gap:10px;align-items:flex-start;transition:background .15s;border-right:1px solid var(--border);}
+.inc-cell:last-child{border-right:none;}
+.inc-cell:hover.yes{background:rgba(52,211,153,.04);}
+.inc-cell:hover.no{background:rgba(248,113,113,.04);}
+.inc-cell-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.inc-cell-sub{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* GANTT */
+.gantt-wrap{background:var(--black-3);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.gantt-hdr{display:grid;grid-template-columns:200px repeat(6,1fr);background:var(--black-4);border-bottom:1px solid var(--border);}
+.gh-cell{padding:11px 8px;font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);text-align:center;border-right:1px solid var(--border);}
+.gh-cell:first-child{text-align:left;padding-left:16px;}
+.gh-cell:last-child{border-right:none;}
+.gantt-phase-row{padding:9px 16px;background:var(--black-4);border-bottom:1px solid var(--border);font-family:'Space Grotesk',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.gantt-phase-row.p1{color:var(--blue);}.gantt-phase-row.p2{color:var(--purple);}
+.gantt-row{display:grid;grid-template-columns:200px repeat(6,1fr);border-bottom:1px solid var(--border);align-items:center;transition:background .15s;}
+.gantt-row:hover{background:var(--white-10);}
+.gantt-row:last-child{border-bottom:none;}
+.gr-label{padding:12px 16px;font-size:12px;color:var(--muted);border-right:1px solid var(--border);font-family:'Space Grotesk',sans-serif;font-weight:500;}
+.gr-cell{padding:12px 8px;border-right:1px solid var(--border);text-align:center;}
+.gr-cell:last-child{border-right:none;}
+.gantt-bar{height:7px;border-radius:100px;animation:barGrow 1s cubic-bezier(.22,1,.36,1) both;}
+.gantt-bar.p1{background:var(--blue);}.gantt-bar.p2{background:var(--purple);}
+
+/* AMC */
+.amc-card{background:var(--black-3);border:1px solid var(--blue-border);border-radius:16px;overflow:hidden;max-width:560px;}
+.amc-header{padding:24px 26px 20px;border-bottom:1px solid var(--border);}
+.amc-tier{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.amc-price{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--white);letter-spacing:-1px;line-height:1;margin-bottom:4px;}
+.amc-price span{font-size:13px;font-weight:400;color:var(--muted);letter-spacing:0;}
+.amc-sub{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.amc-badge{display:inline-block;background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);font-size:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;padding:3px 12px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;}
+.amc-body{padding:20px 26px;}
+.amc-feats{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.amc-feats li{display:flex;gap:10px;font-size:13px;color:var(--muted);align-items:flex-start;line-height:1.5;}
+.amc-feats li span{color:var(--blue);flex-shrink:0;margin-top:1px;}
+
+/* CTA */
+.cta-section{background:var(--black-2);border-top:1px solid var(--border);padding:72px 24px;text-align:center;position:relative;overflow:hidden;}
+.cta-glow{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:600px;height:280px;background:radial-gradient(ellipse,rgba(74,158,231,.15) 0%,transparent 70%);pointer-events:none;animation:glow-pulse 4s ease-in-out infinite;}
+
+/* FOOTER */
+footer{background:var(--black-2);border-top:1px solid var(--border);padding:36px 40px 28px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:20px;}
+.footer-logos img{height:22px;opacity:.6;}
+.footer-div{width:40px;height:1px;background:var(--border);}
+footer p{font-size:12px;color:var(--muted);line-height:1.7;}
+footer strong{color:var(--white-60);}
+
+@media(max-width:680px){
+  .topbar{padding:12px 16px;}.hero{padding:44px 16px 36px;}
+  .hero h1{font-size:32px;letter-spacing:-1px;}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-item:nth-child(odd){border-right:1px solid var(--border);}
+  .stat-item:nth-child(3),.stat-item:nth-child(4){border-bottom:none;}
+  .container{padding:0 16px;}section{padding:40px 0;}
+  .pvs-grid,.pay-grid,.form-row,.inc-row{grid-template-columns:1fr;}
+  .inc-cell{border-right:none;border-bottom:1px solid var(--border);}
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .kpi:nth-child(2){border-right:none;}.kpi:nth-child(3){border-right:1px solid var(--border);}
+  .db-body{grid-template-columns:1fr;}
+  .db-bottom{grid-template-columns:1fr;}
+  .db-bottom-col{border-right:none;border-bottom:1px solid var(--border);}
+  .gantt-hdr,.gantt-row{grid-template-columns:120px repeat(6,1fr);}
+  .gr-label{font-size:10px;padding:10px;}
+  .feat-grid{grid-template-columns:1fr;}
+  footer{padding:28px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-logos">
+    <img src="https://devphant.com/images/logo.png" alt="Devphant"/>
+    <span class="logo-sep"></span>
+    <img src="https://www.rustomjee.com/assets/images/rustomjee-logo.png" alt="Rustomjee"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/>
+    <span style="display:none;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#fff;">Rustomjee</span>
+  </div>
+  <div class="topbar-right">
+    <strong>Sanchalak</strong> &nbsp;·&nbsp; Devphant × Rustomjee &nbsp;·&nbsp; June 2026
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="for-row">
+    <span class="for-label">Prepared for</span>
+    <span class="for-sep"></span>
+    <span class="rustomjee-name">Rustomjee Kapstone Construction Pvt. Ltd.</span>
+  </div>
+  <div class="hero-badge"><span class="badge-dot"></span>Product Proposal · 2026</div>
+  <h1>Sanchalak<br/><span class="accent">by Devphant</span></h1>
+  <p class="hero-tagline">Replace your monthly Excel dashboard with a live, intelligent Quality Intelligence Platform — built specifically for Rustomjee's construction quality team.</p>
+  <p class="hero-meaning">सञ्चालक &nbsp;·&nbsp; <em>The Director. The One Who Drives.</em></p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-value"><em>₹</em>TBD</div><div class="stat-label">Investment</div></div>
+    <div class="stat-item"><div class="stat-value">8 <em style="font-size:14px;font-weight:400;">wks</em></div><div class="stat-label">Delivery</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">Excel Files</div></div>
+    <div class="stat-item"><div class="stat-value"><em>∞</em></div><div class="stat-label">Real-time Data</div></div>
+  </div>
+</div>
+
+<!-- PROBLEM → SOLUTION -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">The Problem We're Solving</div>
+    <h2 class="section-title animate delay-1">Your Excel Sheet Is Holding You Back</h2>
+    <p class="section-desc animate delay-2">The current Quality Management Dashboard is a manual, fragmented, error-prone process. Sanchalak replaces it entirely — no more spreadsheets, no more chasing data, no more version confusion.</p>
+
+    <div class="pvs-grid animate delay-3">
+      <div class="pvs-card problem">
+        <div class="pvs-title p">😤 Current State — Excel</div>
+        <ul class="pvs-list">
+          <li><span>❌</span> Manual data entry into a shared Excel sheet every month — prone to errors and overwrites</li>
+          <li><span>❌</span> No real-time visibility — you only know the status after someone updates the file</li>
+          <li><span>❌</span> 46,000+ cumulative observations tracked in a single workbook — slow and fragile</li>
+          <li><span>❌</span> Quality ratings, checklists, observations, and ageing data scattered across 8 different sheets</li>
+          <li><span>❌</span> No structured form for field engineers — data comes in inconsistent formats</li>
+          <li><span>❌</span> No access control — anyone can accidentally delete or corrupt data</li>
+          <li><span>❌</span> Business leadership can't see live numbers without asking someone to share the file</li>
+          <li><span>❌</span> Repetitive observation tracking done manually with no automation</li>
+        </ul>
+      </div>
+      <div class="pvs-card solution">
+        <div class="pvs-title s">✅ With Sanchalak</div>
+        <ul class="pvs-list">
+          <li><span>✓</span> Field engineers fill structured digital forms — data flows directly into the system</li>
+          <li><span>✓</span> Live dashboard — every observation, checklist, and rating updated in real time</li>
+          <li><span>✓</span> All 46,000+ historical observations migrated and searchable in seconds</li>
+          <li><span>✓</span> Single unified platform — no more jumping between sheets</li>
+          <li><span>✓</span> Role-based access — field engineer, site incharge, and management views</li>
+          <li><span>✓</span> Automatic ageing alerts — overdue observations surface without anyone chasing</li>
+          <li><span>✓</span> Leadership sees live project-wise quality scores, closure rates, and trends anytime</li>
+          <li><span>✓</span> Repetitive observations auto-flagged and tracked across months</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT SANCHALAK DOES -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Platform Features</div>
+    <h2 class="section-title animate delay-1">What Sanchalak Does</h2>
+    <p class="section-desc animate delay-2">Every module in Sanchalak maps directly to a sheet or process in your current Excel dashboard — but smarter, faster, and always live.</p>
+
+    <div class="feat-grid">
+      <div class="feat animate delay-1">
+        <span class="feat-icon">📋</span>
+        <h3>Digital Observation Forms</h3>
+        <p>Field engineers log observations, severity, contractor, stage, and target date directly from mobile or desktop. No paper, no WhatsApp, no Excel — structured data from the source.</p>
+        <span class="feat-tag">Replaces Manual Entry</span>
+      </div>
+      <div class="feat animate delay-2">
+        <span class="feat-icon">📊</span>
+        <h3>Live Quality Ratings Dashboard</h3>
+        <p>Project-wise and wing-wise quality scores calculated automatically from submitted data. Tracks ratings against the 8.5 target. Trending up or down — visible at a glance.</p>
+        <span class="feat-tag">Replaces Obs Backup Sheet</span>
+      </div>
+      <div class="feat animate delay-3">
+        <span class="feat-icon">🔔</span>
+        <h3>Ageing & Overdue Alerts</h3>
+        <p>Automatic flags for observations open beyond 7, 15, and 30 days. No more manually checking Ageing Analysis. The system surfaces what needs attention before it escalates.</p>
+        <span class="feat-tag">Replaces Ageing Tracking</span>
+      </div>
+      <div class="feat animate delay-1">
+        <span class="feat-icon">✅</span>
+        <h3>BIM 360 Checklist Tracker</h3>
+        <p>Track IP, R1, R2, and Closed checklists per project digitally. Monitor closure rates, open issues, and contractor-wise pending items — all in one view.</p>
+        <span class="feat-tag">Replaces Checklist Sheet</span>
+      </div>
+      <div class="feat animate delay-2">
+        <span class="feat-icon">🧱</span>
+        <h3>Material Inspection Reports</h3>
+        <p>Log material inspection records (Accepted / Rejected) per project and month. Track rejected material reasons, concrete quality reports, and inspection counts digitally.</p>
+        <span class="feat-tag">Replaces MIR Section</span>
+      </div>
+      <div class="feat animate delay-3">
+        <span class="feat-icon">🔁</span>
+        <h3>Repetitive Observation Tracker</h3>
+        <p>System automatically identifies observations that repeat across weeks or months for the same contractor or location — highlights patterns so the team can intervene early.</p>
+        <span class="feat-tag">Replaces Repetitive Obs Sheet</span>
+      </div>
+      <div class="feat animate delay-1">
+        <span class="feat-icon">🏗️</span>
+        <h3>Cost Centre Management</h3>
+        <p>Manage all projects — La Familia, Lavie, Verdant Vistas, Social Housing — as separate cost centres with individual dashboards, incharge assignments, and observation counts.</p>
+        <span class="feat-tag">Replaces Cost Centre Sheet</span>
+      </div>
+      <div class="feat animate delay-2">
+        <span class="feat-icon">📈</span>
+        <h3>Business Analytics for Leadership</h3>
+        <p>Translate quality numbers into business language — cost of rework, contractor performance scores, closure rates, severity breakdown. Built for management reviews, not just site teams.</p>
+        <span class="feat-tag">New — Not in Excel</span>
+      </div>
+      <div class="feat animate delay-3">
+        <span class="feat-icon">👥</span>
+        <h3>Role-Based Access</h3>
+        <p>Field Engineer → logs observations. Site Incharge → reviews and closes. Quality Manager → sees all projects. Management → sees live summary. Everyone sees only what they need.</p>
+        <span class="feat-tag">New — Not in Excel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Platform Preview</div>
+    <h2 class="section-title animate delay-1">Sanchalak in Action</h2>
+    <p class="section-desc animate delay-2">Four live views — the same data your team works with today, but in real time, with no manual updates required.</p>
+
+    <div class="db-wrap animate delay-3">
+      <div class="db-topbar">
+        <div class="db-title-row">
+          <span class="db-dot"></span>
+          <span class="db-title">Sanchalak — Quality Intelligence Platform</span>
+          <span class="db-live">Live</span>
+        </div>
+        <span class="db-date">Rustomjee Kapstone &nbsp;·&nbsp; March 2026</span>
+      </div>
+
+      <div class="db-tabs">
+        <div class="db-tab active" onclick="switchTab('overview',this)">📊 Overview</div>
+        <div class="db-tab" onclick="switchTab('observations',this)">🔍 Observations</div>
+        <div class="db-tab" onclick="switchTab('form',this)">📋 Log Observation</div>
+        <div class="db-tab" onclick="switchTab('checklist',this)">✅ Checklists</div>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="db-panel active" id="panel-overview">
+        <div class="kpi-row">
+          <div class="kpi"><div class="kpi-icon">🔢</div><div class="kpi-label">Total Observations</div><div class="kpi-value">46,083</div><div class="kpi-delta warn">↑ 1,300 this month</div></div>
+          <div class="kpi"><div class="kpi-icon">🔴</div><div class="kpi-label">Open Observations</div><div class="kpi-value">985</div><div class="kpi-delta down">↓ 315 closed this month</div></div>
+          <div class="kpi"><div class="kpi-icon">⏰</div><div class="kpi-label">Overdue (>30 Days)</div><div class="kpi-value">89</div><div class="kpi-delta down">Needs immediate action</div></div>
+          <div class="kpi"><div class="kpi-icon">📉</div><div class="kpi-label">Closure Rate</div><div class="kpi-value">94.8%</div><div class="kpi-delta up">↑ Target: 95%</div></div>
+        </div>
+        <div class="db-body">
+          <div class="db-chart-area">
+            <div class="chart-title">Quality Rating Trend — All Projects</div>
+            <div class="chart-sub">Monthly average score vs 8.5 target · Jan–Mar 2026</div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 420 130" height="130" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="blueGrad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#4A9EE7" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#4A9EE7" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="0" x2="420" y2="0" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+                <line x1="0" y1="32" x2="420" y2="32" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+                <line x1="0" y1="65" x2="420" y2="65" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+                <line x1="0" y1="98" x2="420" y2="98" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+                <!-- target line at 8.5 = approx y=20 -->
+                <line x1="0" y1="20" x2="420" y2="20" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+                <text x="4" y="17" fill="#FBBF24" font-size="9" font-family="Space Grotesk" opacity="0.8">Target 8.5</text>
+                <path class="chart-area-fill" d="M0,85 L52,82 L105,78 L157,74 L210,70 L262,67 L315,65 L367,62 L420,60 L420,130 L0,130 Z"/>
+                <polyline class="chart-line" points="0,85 52,82 105,78 157,74 210,70 262,67 315,65 367,62 420,60"/>
+                <circle cx="0" cy="85" r="4" fill="#4A9EE7"/>
+                <circle cx="105" cy="78" r="4" fill="#4A9EE7"/>
+                <circle cx="210" cy="70" r="4" fill="#4A9EE7"/>
+                <circle cx="315" cy="65" r="4" fill="#4A9EE7"/>
+                <circle cx="420" cy="60" r="5" fill="#4A9EE7" style="filter:drop-shadow(0 0 5px #4A9EE7)"/>
+              </svg>
+            </div>
+            <div class="chart-x"><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span></div>
+          </div>
+          <div class="db-sidebar">
+            <div class="sidebar-title">Project-wise Ratings</div>
+            <div class="proj-row">
+              <span class="proj-name">Lavie C Wing</span>
+              <span class="proj-score score-good">7.7</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-green" style="width:88%;animation-delay:.1s;"></div></div>
+            </div>
+            <div class="proj-row">
+              <span class="proj-name">Lavie A Wing</span>
+              <span class="proj-score score-good">7.5</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-green" style="width:85%;animation-delay:.15s;"></div></div>
+            </div>
+            <div class="proj-row">
+              <span class="proj-name">Verdant Vistas</span>
+              <span class="proj-score score-good">6.8</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-blue" style="width:78%;animation-delay:.2s;"></div></div>
+            </div>
+            <div class="proj-row">
+              <span class="proj-name">La Familia C Wing</span>
+              <span class="proj-score score-avg">6.9</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-amber" style="width:72%;animation-delay:.25s;"></div></div>
+            </div>
+            <div class="proj-row">
+              <span class="proj-name">La Familia A Wing</span>
+              <span class="proj-score score-avg">6.8</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-amber" style="width:68%;animation-delay:.3s;"></div></div>
+            </div>
+            <div class="proj-row">
+              <span class="proj-name">Social Housing</span>
+              <span class="proj-score score-avg">6.5</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-amber" style="width:62%;animation-delay:.35s;"></div></div>
+            </div>
+            <div class="proj-row">
+              <span class="proj-name">La Familia Podium</span>
+              <span class="proj-score score-low">6.2</span>
+              <div class="proj-bar-track"><div class="proj-bar-fill bf-red" style="width:55%;animation-delay:.4s;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="db-bottom">
+          <div class="db-bottom-col">
+            <div class="mini-title">Severity Breakdown</div>
+            <div class="bar-row">
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">Very High</span><span class="bar-val">2%</span></div><div class="bar-track"><div class="bar-fill bf-red" style="width:8%;animation-delay:.1s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">High</span><span class="bar-val">12%</span></div><div class="bar-track"><div class="bar-fill bf-amber" style="width:30%;animation-delay:.15s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">Medium</span><span class="bar-val">41%</span></div><div class="bar-track"><div class="bar-fill bf-blue" style="width:65%;animation-delay:.2s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">Low</span><span class="bar-val">45%</span></div><div class="bar-track"><div class="bar-fill bf-green" style="width:80%;animation-delay:.25s;"></div></div></div>
+            </div>
+          </div>
+          <div class="db-bottom-col">
+            <div class="mini-title">Ageing Analysis</div>
+            <div class="bar-row">
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">&gt;7 Days Open</span><span class="bar-val">1</span></div><div class="bar-track"><div class="bar-fill bf-green" style="width:5%;animation-delay:.1s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">&gt;15 Days Open</span><span class="bar-val">0</span></div><div class="bar-track"><div class="bar-fill bf-amber" style="width:0%;animation-delay:.15s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">&gt;30 Days Open</span><span class="bar-val" style="color:var(--red);">89</span></div><div class="bar-track"><div class="bar-fill bf-red" style="width:92%;animation-delay:.2s;"></div></div></div>
+            </div>
+          </div>
+          <div class="db-bottom-col">
+            <div class="mini-title">MIR This Month</div>
+            <div class="bar-row">
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">La Familia</span><span class="bar-val">216</span></div><div class="bar-track"><div class="bar-fill bf-blue" style="width:92%;animation-delay:.1s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">Lavie</span><span class="bar-val">87</span></div><div class="bar-track"><div class="bar-fill bf-green" style="width:58%;animation-delay:.2s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">Verdant Vistas</span><span class="bar-val">17</span></div><div class="bar-track"><div class="bar-fill bf-purple" style="width:22%;animation-delay:.3s;"></div></div></div>
+              <div class="bar-item"><div class="bar-top"><span class="bar-label">Social Housing</span><span class="bar-val">11</span></div><div class="bar-track"><div class="bar-fill bf-amber" style="width:14%;animation-delay:.4s;"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OBSERVATIONS -->
+      <div class="db-panel" id="panel-observations">
+        <table class="obs-table">
+          <thead>
+            <tr>
+              <th>Observation</th>
+              <th>Project</th>
+              <th>Activity</th>
+              <th>Contractor</th>
+              <th>Severity</th>
+              <th>Status</th>
+              <th>Overdue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>PCC curing not done on PCC surface</td><td>La Familia NTA</td><td>Civil Work</td><td>Simplex Infra</td><td><span class="sev-badge sev-low">Low</span></td><td><span class="status-closed">Closed</span></td><td>–</td></tr>
+            <tr><td>Curing issue in plastering work — Shahabad Ladi</td><td>La Familia NTA</td><td>Waterproofing</td><td>Choksey WP</td><td><span class="sev-badge sev-med">Medium</span></td><td><span class="status-open">Open</span></td><td><span style="color:var(--red);font-size:11px;font-weight:700;">32 Days</span></td></tr>
+            <tr><td>Loose particles not removed from footing before PCC</td><td>La Familia NTA</td><td>Civil Work</td><td>Simplex Infra</td><td><span class="sev-badge sev-high">High</span></td><td><span class="status-open">Open</span></td><td><span style="color:var(--amber);font-size:11px;font-weight:700;">12 Days</span></td></tr>
+            <tr><td>Shear key not provided in structure at concrete stage</td><td>Verdant Vistas</td><td>Civil Work</td><td>RCC Contractor</td><td><span class="sev-badge sev-vh">Very High</span></td><td><span class="status-prog">In Progress</span></td><td>–</td></tr>
+            <tr><td>External painting work incomplete — 28 open issues</td><td>La Familia A Wing</td><td>External Painting</td><td>Paint Vendor</td><td><span class="sev-badge sev-med">Medium</span></td><td><span class="status-open">Open</span></td><td><span style="color:var(--red);font-size:11px;font-weight:700;">45 Days</span></td></tr>
+            <tr><td>Carpentry work — 8 of 9 items pending</td><td>La Familia A Wing</td><td>Carpentry</td><td>Carpenter Co.</td><td><span class="sev-badge sev-low">Low</span></td><td><span class="status-open">Open</span></td><td><span style="color:var(--amber);font-size:11px;font-weight:700;">8 Days</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- LOG OBSERVATION FORM -->
+      <div class="db-panel" id="panel-form">
+        <div class="form-preview">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;">Log New Observation</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Project</label>
+              <select class="form-select">
+                <option>La Familia A Wing</option>
+                <option>La Familia B Wing</option>
+                <option>Lavie NTA</option>
+                <option>Verdant Vistas</option>
+                <option>Social Housing</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Site Incharge</label>
+              <select class="form-select">
+                <option>Er. Hemant Nevarekar</option>
+                <option>Er. Saurabh Bhide</option>
+                <option>Er. Trilok Raval</option>
+                <option>Er. Aditya Shinde</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Activity</label>
+              <select class="form-select">
+                <option>Civil Work</option>
+                <option>Waterproofing</option>
+                <option>External Painting</option>
+                <option>Carpentry Work</option>
+                <option>RCC Work</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Stage</label>
+              <select class="form-select">
+                <option>Pre Stage</option>
+                <option>During Stage</option>
+                <option>Post Stage</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Observation Description</label>
+            <textarea class="form-input" rows="2" placeholder="Describe the quality observation in detail..." style="resize:none;"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Contractor</label>
+              <input class="form-input" type="text" placeholder="Contractor name"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Target Closure Date</label>
+              <input class="form-input" type="date"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Severity</label>
+            <div class="severity-row">
+              <span class="sev-btn active-vh" onclick="setSev(this)">Very High</span>
+              <span class="sev-btn active-h" onclick="setSev(this)">High</span>
+              <span class="sev-btn active-m" onclick="setSev(this)" style="background:rgba(251,191,36,.15);border-color:rgba(251,191,36,.4);color:var(--amber);">Medium ✓</span>
+              <span class="sev-btn active-l" onclick="setSev(this)">Low</span>
+            </div>
+          </div>
+          <button class="form-submit" onclick="this.textContent='✓ Observation Logged!';this.style.background='var(--green)';setTimeout(()=>{this.textContent='Submit Observation';this.style.background='var(--blue)';},2000);">Submit Observation</button>
+        </div>
+      </div>
+
+      <!-- CHECKLISTS -->
+      <div class="db-panel" id="panel-checklist">
+        <table class="obs-table">
+          <thead>
+            <tr><th>Project</th><th>In Progress (IP)</th><th>R1 — Contractor Pending</th><th>R2 — Open Issues</th><th>Closed (C)</th><th>Total</th><th>Closure %</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>La Familia NTA</td><td><span style="color:var(--amber);font-weight:700;">111</span></td><td><span style="color:var(--red);font-weight:700;">29</span></td><td><span style="color:var(--red);font-weight:700;">21</span></td><td><span style="color:var(--green);font-weight:700;">1,411</span></td><td>1,572</td><td><span style="color:var(--green);font-weight:700;">89.7%</span></td></tr>
+            <tr><td>La Familia Tower A</td><td><span style="color:var(--amber);font-weight:700;">1,589</span></td><td><span style="color:var(--red);font-weight:700;">88</span></td><td><span style="color:var(--red);font-weight:700;">329</span></td><td><span style="color:var(--green);font-weight:700;">2,245</span></td><td>4,251</td><td><span style="color:var(--amber);font-weight:700;">52.8%</span></td></tr>
+            <tr><td>Social Housing</td><td><span style="color:var(--amber);font-weight:700;">50</span></td><td><span style="color:var(--muted);">0</span></td><td><span style="color:var(--red);font-weight:700;">15</span></td><td><span style="color:var(--green);font-weight:700;">313</span></td><td>378</td><td><span style="color:var(--green);font-weight:700;">82.8%</span></td></tr>
+            <tr><td>CEC</td><td><span style="color:var(--amber);font-weight:700;">41</span></td><td><span style="color:var(--muted);">0</span></td><td><span style="color:var(--muted);">0</span></td><td><span style="color:var(--green);font-weight:700;">407</span></td><td>448</td><td><span style="color:var(--green);font-weight:700;">90.8%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE & PRICING -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Scope of Work</div>
+    <h2 class="section-title animate delay-1">What We're Building</h2>
+    <p class="section-desc animate delay-2">Sanchalak is built in two phases — the core platform and data migration first, then advanced intelligence and reporting layers.</p>
+
+    <div class="phase-hdr p1 animate delay-3">
+      <div><div class="ph-label p1c">Phase 1</div><div class="ph-name">Core Platform & Data Migration</div></div>
+    </div>
+    <div class="scope-wrap animate delay-4">
+      <table class="scope-table">
+        <thead><tr><th style="width:36px;">#</th><th>Deliverable</th><th style="width:80px;">Timeline</th></tr></thead>
+        <tbody>
+          <tr><td class="td-num">01</td><td><div class="td-title">📐 Discovery & System Architecture</div><div class="td-desc">Map every sheet, formula, and data flow from the current Excel dashboard to Sanchalak's database schema. Define roles (field engineer, site incharge, quality manager, management). Plan all forms and views.</div></td><td class="td-week">Week 1</td></tr>
+          <tr><td class="td-num">02</td><td><div class="td-title">🎨 UI/UX Design</div><div class="td-desc">Design all screens in Figma — dashboard, observation form, checklist tracker, MIR, project cards, and admin panel. Mobile-first for field engineers. Shared for approval before development.</div></td><td class="td-week">Wk 1–2</td></tr>
+          <tr><td class="td-num">03</td><td><div class="td-title">📋 Digital Observation Forms</div><div class="td-desc">Build the primary data entry form — project, wing, incharge, activity, stage, contractor, observation, severity, target date, and photo upload. Accessible on mobile from any site.</div></td><td class="td-week">Wk 2–3</td></tr>
+          <tr><td class="td-num">04</td><td><div class="td-title">📊 Core Dashboard & Quality Ratings</div><div class="td-desc">Live dashboard showing project-wise quality scores, open vs closed observations, ageing analysis, severity breakdown, and closure rate — all calculated automatically from submitted data.</div></td><td class="td-week">Wk 2–4</td></tr>
+          <tr><td class="td-num">05</td><td><div class="td-title">🗂️ Historical Data Migration</div><div class="td-desc">Migrate all 46,000+ historical observations from the Excel sheet into Sanchalak's database. All historical ratings, checklists, and MIR data preserved and searchable from day one.</div></td><td class="td-week">Wk 3–4</td></tr>
+          <tr><td class="td-num">06</td><td><div class="td-title">👥 Role-Based Access Control</div><div class="td-desc">Field Engineer, Site Incharge, Quality Manager, and Management roles with separate login and views. Admin can add/remove users and assign them to projects.</div></td><td class="td-week">Wk 3–5</td></tr>
+          <tr><td class="td-num">07</td><td><div class="td-title">✅ BIM 360 Checklist & MIR Module</div><div class="td-desc">Digital checklist tracker (IP, R1, R2, Closed) and Material Inspection Report module — replace the corresponding sheets with live, collaborative forms.</div></td><td class="td-week">Wk 4–5</td></tr>
+          <tr><td class="td-num">08</td><td><div class="td-title">🚀 QA, Testing & Deployment</div><div class="td-desc">Cross-device QA, performance testing, data integrity verification, SSL setup, and go-live. 7-day post-launch bug support included.</div></td><td class="td-week">Week 6</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="phase-hdr p2 animate">
+      <div><div class="ph-label p2c">Phase 2</div><div class="ph-name">Intelligence Layer & Advanced Reporting</div></div>
+    </div>
+    <div class="scope-wrap animate delay-1">
+      <table class="scope-table">
+        <thead><tr><th style="width:36px;">#</th><th>Deliverable</th><th style="width:80px;">Timeline</th></tr></thead>
+        <tbody>
+          <tr><td class="td-num p2c">09</td><td><div class="td-title">🔁 Repetitive Observation Tracker</div><div class="td-desc">System auto-identifies observations that repeat for the same contractor, location, or activity across weeks and months — flags patterns and generates repetitive obs reports automatically.</div></td><td class="td-week">Wk 6–7</td></tr>
+          <tr><td class="td-num p2c">10</td><td><div class="td-title">🔔 Automated Ageing Alerts</div><div class="td-desc">Automatic notifications to Site Incharge and Quality Manager when observations cross 7, 15, and 30 day thresholds — via in-app notification, email, and WhatsApp.</div></td><td class="td-week">Wk 6–7</td></tr>
+          <tr><td class="td-num p2c">11</td><td><div class="td-title">📈 Business Analytics for Management</div><div class="td-desc">Executive dashboard translating quality data into business metrics — cost of rework, contractor performance rankings, project health scores, and month-on-month trend comparisons. Built for leadership reviews.</div></td><td class="td-week">Wk 7–8</td></tr>
+          <tr><td class="td-num p2c">12</td><td><div class="td-title">📄 Auto-Generated PDF Reports</div><div class="td-desc">One-click export of the monthly Quality Management Dashboard as a PDF — formatted exactly like the current report, but generated automatically from live data. No manual compilation.</div></td><td class="td-week">Wk 7–8</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="totals-box animate delay-2">
+      <div class="total-row"><span class="total-label">Phase 1 — Core Platform & Data Migration</span><span class="total-val tv-blue">To be scoped</span></div>
+      <div class="total-row"><span class="total-label">Phase 2 — Intelligence Layer & Advanced Reporting</span><span class="total-val tv-purple">To be scoped</span></div>
+      <div class="total-row total-grand">
+        <div><span class="total-label">Total Investment</span><span class="no-gst">No GST applicable · Final quote shared after discovery session</span></div>
+        <div style="text-align:right;"><span class="total-val">TBD</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;background:rgba(74,158,231,.06);border:1px solid var(--blue-border);border-radius:12px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;" class="animate">
+      <span style="font-size:18px;flex-shrink:0;">💡</span>
+      <p style="font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.65;">The final project cost will be confirmed after a <strong style="color:var(--white);">1-hour discovery session</strong> with the Rustomjee quality team — to finalise the data model, user roles, integrations, and exact feature scope. This proposal outlines the full platform vision and scope so the team can align internally before that conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED / NOT INCLUDED -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Scope Boundaries</div>
+    <h2 class="section-title animate delay-1">Included & Not Included</h2>
+    <p class="section-desc animate delay-2">A clear breakdown of what Devphant delivers and what falls outside the project fee.</p>
+
+    <div class="inc-wrap animate delay-3">
+      <div style="display:grid;grid-template-columns:1fr 1fr;background:var(--black-4);border-bottom:1px solid var(--border);">
+        <div style="padding:12px 22px;border-right:1px solid var(--border);display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);"></span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);">Included</span></div>
+        <div style="padding:12px 22px;display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);"></span><span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);">Not Included — Client's Cost</span></div>
+      </div>
+      <div class="inc-row"><div class="inc-cell yes"><span style="color:var(--green);flex-shrink:0;">✓</span><div><div class="inc-cell-title">Full Platform Build</div><div class="inc-cell-sub">All 12 modules, forms, dashboards, and admin panel</div></div></div><div class="inc-cell no"><span style="color:var(--red);flex-shrink:0;">✗</span><div><div class="inc-cell-title">Cloud Server Hosting</div><div class="inc-cell-sub">AWS/DigitalOcean ~₹2,000–4,000/mo (covered in AMC)</div></div></div></div>
+      <div class="inc-row"><div class="inc-cell yes"><span style="color:var(--green);flex-shrink:0;">✓</span><div><div class="inc-cell-title">Historical Data Migration</div><div class="inc-cell-sub">All 46,000+ observations from Excel migrated on day one</div></div></div><div class="inc-cell no"><span style="color:var(--red);flex-shrink:0;">✗</span><div><div class="inc-cell-title">BIM 360 API Integration</div><div class="inc-cell-sub">Direct sync requires BIM 360 API access credentials from client</div></div></div></div>
+      <div class="inc-row"><div class="inc-cell yes"><span style="color:var(--green);flex-shrink:0;">✓</span><div><div class="inc-cell-title">UI/UX Design in Figma</div><div class="inc-cell-sub">All screens designed and approved before development</div></div></div><div class="inc-cell no"><span style="color:var(--red);flex-shrink:0;">✗</span><div><div class="inc-cell-title">WhatsApp Business API</div><div class="inc-cell-sub">₹2k–8k/mo via Interakt/Wati for alert notifications</div></div></div></div>
+      <div class="inc-row"><div class="inc-cell yes"><span style="color:var(--green);flex-shrink:0;">✓</span><div><div class="inc-cell-title">Role-Based Access Control</div><div class="inc-cell-sub">4 user roles with separate views and permissions</div></div></div><div class="inc-cell no"><span style="color:var(--red);flex-shrink:0;">✗</span><div><div class="inc-cell-title">Mobile App (iOS/Android)</div><div class="inc-cell-sub">Web platform is mobile-responsive; native app is a separate scope</div></div></div></div>
+      <div class="inc-row"><div class="inc-cell yes"><span style="color:var(--green);flex-shrink:0;">✓</span><div><div class="inc-cell-title">SSL, Deployment & QA</div><div class="inc-cell-sub">Secure HTTPS, cross-device testing, and go-live support</div></div></div><div class="inc-cell no"><span style="color:var(--red);flex-shrink:0;">✗</span><div><div class="inc-cell-title">Maintenance After 7 Days</div><div class="inc-cell-sub">AMC from ₹12,000/mo — server included (see below)</div></div></div></div>
+      <div class="inc-row"><div class="inc-cell yes"><span style="color:var(--green);flex-shrink:0;">✓</span><div><div class="inc-cell-title">7-Day Free Bug Support</div><div class="inc-cell-sub">Post go-live issue fixes at no charge</div></div></div><div class="inc-cell no"><span style="color:var(--red);flex-shrink:0;">✗</span><div><div class="inc-cell-title">Legal Policies</div><div class="inc-cell-sub">Privacy policy, data processing agreements — client's legal team</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AMC -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Post-Launch</div>
+    <h2 class="section-title animate delay-1">Annual Maintenance Contract</h2>
+    <p class="section-desc animate delay-2">After the 7-day free support window, keep Sanchalak maintained, monitored, and growing with Devphant's AMC. Separate from and above the project cost.</p>
+
+    <div class="amc-card animate delay-3">
+      <div class="amc-header">
+        <div class="amc-tier">Remote Support Plan</div>
+        <div class="amc-price">₹12,000 <span>/ month</span></div>
+        <div class="amc-sub">Everything managed. One flat fee. No surprise bills.</div>
+        <span class="amc-badge">MIN. 6 MONTHS</span>
+      </div>
+      <div class="amc-body">
+        <ul class="amc-feats">
+          <li><span>✓</span><div><strong style="color:var(--white);font-size:13px;">☁️ Cloud Server Hosting — Included</strong><div style="font-size:12px;margin-top:2px;">Server cost fully covered. No separate hosting invoice.</div></div></li>
+          <li><span>✓</span><div><strong style="color:var(--white);font-size:13px;">🛠️ Cloud Infrastructure Management</strong><div style="font-size:12px;margin-top:2px;">Uptime monitoring, backups, security patches, and scaling — all handled by Devphant.</div></div></li>
+          <li><span>✓</span><div><strong style="color:var(--white);font-size:13px;">📊 Data Management & Monthly Reports</strong><div style="font-size:12px;margin-top:2px;">Monthly quality summary report, data integrity checks, and platform health monitoring.</div></div></li>
+          <li><span>✓</span> Content & configuration updates — new projects, users, cost centres</li>
+          <li><span>✓</span> Bug fixes and minor UI improvements</li>
+          <li><span>✓</span> Priority WhatsApp support — response within 4 hours</li>
+          <li><span style="color:var(--red);">✗</span> <span style="color:rgba(255,255,255,.4);">New feature development (scoped and quoted separately)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="container">
+    <div class="eyebrow animate">Delivery Plan</div>
+    <h2 class="section-title animate delay-1">8-Week Build Timeline</h2>
+    <p class="section-desc animate delay-2">Phase 2 begins in Week 6, running in parallel with final QA — so you get the full platform delivered in 8 weeks.</p>
+
+    <div class="gantt-wrap animate delay-3">
+      <div class="gantt-hdr">
+        <div class="gh-cell">Deliverable</div>
+        <div class="gh-cell">Wk 1</div><div class="gh-cell">Wk 2</div>
+        <div class="gh-cell">Wk 3–4</div><div class="gh-cell">Wk 5</div>
+        <div class="gh-cell">Wk 6</div><div class="gh-cell">Wk 7–8</div>
+      </div>
+      <div class="gantt-phase-row p1">Phase 1 — Core Platform</div>
+      <div class="gantt-row"><div class="gr-label">Discovery & Architecture</div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.1s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">UI/UX Design</div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.15s;"></div></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.2s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">Observation Forms</div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.2s;"></div></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.25s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">Core Dashboard</div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.2s;"></div></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.25s;"></div></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.3s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">Data Migration</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.25s;"></div></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.3s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">Role-Based Access</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.25s;"></div></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.3s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">Checklist & MIR Module</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.3s;"></div></div><div class="gr-cell"></div><div class="gr-cell"></div></div>
+      <div class="gantt-row"><div class="gr-label">QA & Deployment</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p1" style="width:100%;animation-delay:.35s;"></div></div><div class="gr-cell"></div></div>
+      <div class="gantt-phase-row p2">Phase 2 — Intelligence Layer</div>
+      <div class="gantt-row"><div class="gr-label">Repetitive Obs Tracker</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p2" style="width:100%;animation-delay:.3s;"></div></div><div class="gr-cell"><div class="gantt-bar p2" style="width:100%;animation-delay:.35s;"></div></div></div>
+      <div class="gantt-row"><div class="gr-label">Ageing Alerts</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p2" style="width:100%;animation-delay:.3s;"></div></div><div class="gr-cell"><div class="gantt-bar p2" style="width:100%;animation-delay:.35s;"></div></div></div>
+      <div class="gantt-row"><div class="gr-label">Business Analytics</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p2" style="width:100%;animation-delay:.35s;"></div></div></div>
+      <div class="gantt-row"><div class="gr-label">Auto PDF Reports</div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"></div><div class="gr-cell"><div class="gantt-bar p2" style="width:100%;animation-delay:.4s;"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;position:relative;">Let's Build Sanchalak</div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--white);letter-spacing:-1px;line-height:1.1;margin-bottom:12px;position:relative;">Ready to move beyond<br/><span style="color:var(--blue);">Excel?</span></h2>
+  <p style="font-size:15px;color:var(--muted);max-width:440px;margin:0 auto 40px;line-height:1.7;position:relative;">Let's start with a 1-hour discovery session with your quality team — and finalise Sanchalak's scope and cost together.</p>
+
+  <button id="launch-btn" onclick="launchConfetti()" style="display:inline-flex;align-items:center;gap:14px;background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;padding:18px 40px;border-radius:100px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;animation:pulse-ring 2.5s infinite;position:relative;z-index:2;" onmouseover="this.style.transform='scale(1.06)';this.style.boxShadow='0 8px 32px rgba(74,158,231,.5)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
+    <span style="width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">▶</span>
+    Yes, Let's Build Sanchalak
+  </button>
+
+  <div id="cta-after" style="display:none;margin-top:40px;animation:fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both;">
+    <div style="font-size:32px;margin-bottom:12px;">🎉</div>
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:8px;">Excellent! Let's talk.</div>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:24px;">Book a discovery session and we'll take it from here.</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;">
+      <a href="mailto:info@devphant.com" style="display:inline-flex;align-items:center;gap:8px;background:var(--black-3);border:1px solid var(--blue-border);color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;padding:12px 24px;border-radius:100px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(74,158,231,.15)'" onmouseout="this.style.background='var(--black-3)'">📧 &nbsp; info@devphant.com</a>
+      <a href="https://wa.me/919167366731" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#25D366;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;padding:12px 24px;border-radius:100px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 &nbsp; WhatsApp Us</a>
+    </div>
+  </div>
+</div>
+
+<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;"></canvas>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logos">
+    <img src="https://devphant.com/images/logo.png" alt="Devphant" onerror="this.style.display='none'"/>
+  </div>
+  <div class="footer-div"></div>
+  <p>Prepared by <strong>Devphant</strong> for <strong>Rustomjee Kapstone Construction Pvt. Ltd.</strong></p>
+  <p style="font-size:11px;color:rgba(255,255,255,.2);">Confidential · Valid 30 days from June 2026 · info@devphant.com</p>
+</footer>
+
+<script>
+function switchTab(tab, el) {
+  document.querySelectorAll('.db-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.db-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+function setSev(el) { /* visual only */ }
+
+function launchConfetti() {
+  const btn = document.getElementById('launch-btn');
+  const after = document.getElementById('cta-after');
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  btn.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    btn.style.transform = 'scale(1)';
+    btn.innerHTML = '🎉 &nbsp; Here We Go, Rustomjee!';
+    btn.style.background = 'var(--green)';
+    btn.style.animation = 'none';
+    btn.disabled = true;
+    btn.style.cursor = 'default';
+  }, 150);
+  setTimeout(() => { after.style.display = 'block'; }, 600);
+  canvas.style.display = 'block';
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const colors = ['#4A9EE7','#34D399','#A78BFA','#FBBF24','#F87171','#ffffff','#60A5FA','#FB923C'];
+  const shapes = ['circle','square','ribbon'];
+  const particles = Array.from({length:200}, () => ({
+    x: Math.random() * canvas.width, y: -20 - Math.random() * 200,
+    r: 4 + Math.random() * 8,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    shape: shapes[Math.floor(Math.random() * shapes.length)],
+    vx: (Math.random() - 0.5) * 5, vy: 2 + Math.random() * 5,
+    angle: Math.random() * 360, spin: (Math.random() - 0.5) * 8,
+    opacity: 1, wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.05 + Math.random() * 0.1,
+  }));
+  let frame = 0, animId;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let alive = false;
+    particles.forEach(p => {
+      if (p.y < canvas.height + 20 && p.opacity > 0) {
+        alive = true;
+        p.wobble += p.wobbleSpeed;
+        p.x += p.vx + Math.sin(p.wobble) * 1.2;
+        p.y += p.vy; p.angle += p.spin; p.vy += 0.08;
+        if (p.y > canvas.height * 0.7) p.opacity -= 0.018;
+        ctx.save(); ctx.globalAlpha = Math.max(0, p.opacity);
+        ctx.fillStyle = p.color;
+        ctx.translate(p.x, p.y); ctx.rotate((p.angle * Math.PI) / 180);
+        if (p.shape === 'circle') { ctx.beginPath(); ctx.arc(0, 0, p.r, 0, Math.PI * 2); ctx.fill(); }
+        else if (p.shape === 'square') { ctx.fillRect(-p.r, -p.r * .6, p.r * 2, p.r * 1.2); }
+        else { ctx.fillRect(-p.r * 1.5, -p.r * .3, p.r * 3, p.r * .6); }
+        ctx.restore();
+      }
+    });
+    frame++;
+    if (alive || frame < 60) { animId = requestAnimationFrame(draw); }
+    else { canvas.style.display = 'none'; cancelAnimationFrame(animId); }
+  }
+  draw();
+  setTimeout(() => {
+    particles.forEach((p, i) => {
+      if (i % 3 === 0) { p.x = Math.random() * canvas.width; p.y = -10 - Math.random() * 100; p.vy = 1.5 + Math.random() * 4; p.opacity = 1; }
+    });
+  }, 400);
+}
+
+// Scroll animations
+const observerew IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+const ganttObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.gantt-bar').forEach((bar, i) => { bar.style.animationDelay = (.1 + i * .04) + 's'; });
+      ganttObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: .15 });
+const gantt = document.querySelector('.gantt-wrap');
+if (gantt) ganttObs.observe(gantt);
+
+const dbObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.bar-fill,.proj-bar-fill').forEach((b, i) => { b.style.animationDelay = (.1 + i * .08) + 's'; });
+      dbObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: .15 });
+const dbWrap = document.querySelector('.db-wrap');
+if (dbWrap) dbObs.observe(dbWrap);
+</script>
+</body>
+</html>
